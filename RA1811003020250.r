@@ -1,0 +1,10 @@
+library(robotstxt)
+path<-paths_allowed("https://gaana.com/playlist/gaana-dj-bollywood-top-50-1")
+link<-"https://gaana.com/playlist/gaana-dj-bollywood-top-50-1"
+library(rvest)
+web<-read_html(link)
+Name<-web%>%html_nodes(".s_title")%>%html_text()
+Artist<-web%>%html_nodes(".s_artist")%>%html_text()
+Duration<-web%>%html_nodes(".s_duration")%>%html_text()
+Song.info=data.frame(Name,Artist,Duration)
+View(Song.info)
